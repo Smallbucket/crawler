@@ -1,0 +1,6 @@
+# need to install module
+
+bs4
+pymongo
+requests
+json

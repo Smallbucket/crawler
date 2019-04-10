@@ -10,4 +10,7 @@ def main(resources_file_path, base_url, scratch_func):
     new_data = scratch_func(base_url, old_data)
     if new_data:
         date_new_data = "//" + datetime.now().strftime('%Y-%m-%d') + "\n" + "\n".join(new_data) + "\n"
-        FileUtil.append
+        FileUtil.append(resources_file_path, date_new_data)
+        MongoUtil.insert(resources_file_path, date_new_data)
+    else:
+        print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), '----', getattr(scratch_func, '__name__'), ": nothing to update ")
