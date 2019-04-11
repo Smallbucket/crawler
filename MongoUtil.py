@@ -15,9 +15,16 @@ def insert(path, data, operation='append'):
     resources = client.tangdb.resources
     sequence = client.tangdb.sequence
     print(sequence)
+    print(resources)
     seq = sequence.find.one({"_id": "version"})["seq"]
     sequence.update_one({"_id", "version"}, {"$inc": {"seq": 1}})
-    post_data = {"_class": "com.gionee.smart.domain.entity.Resources", "version": seq, "path": path,
-            "content": data, "status": "enable", "operation": operaion,
-            "createtime": datetime.now(timezone(timedelta(hours=8)))}
+    post_data = {
+            "_class": "com.gionee.smart.domain.entity.Resources", 
+            "version": seq, 
+            "path": path,
+            "content": data, 
+            "status": "enable", 
+            "operation": operaion,
+            "createtime": datetime.now(timezone(timedelta(hours=8)))
+    }
     resources.insert(post_data)
