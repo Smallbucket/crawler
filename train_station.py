@@ -3,7 +3,7 @@
 import requests
 import bs4
 import random
-import MainUtil
+import main
 
 resources_file_path='/resources/train/trainStationNameList.ini'
 scratch_url = 'http://www.smskb.com/train/'
@@ -34,4 +34,4 @@ def train_station(scratch_url, old_stations):
     return new_stations
 
 if __name__ == '__main__':
-    MainUtil.main(resources_file_path, scratch_url, train_station)
+    main.main(resources_file_path, scratch_url, train_station)

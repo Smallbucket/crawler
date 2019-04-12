@@ -16,7 +16,7 @@ def insert(path, data, operation='append'):
     sequence = client.tangdb.sequence
     print(sequence)
     print(resources)
-    seq = sequence.find.one({"_id": "version"})["seq"]
+    seq = sequence.find_one({"_id": "version"})["seq"]
     sequence.update_one({"_id", "version"}, {"$inc": {"seq": 1}})
     post_data = {
             "_class": "com.gionee.smart.domain.entity.Resources", 
